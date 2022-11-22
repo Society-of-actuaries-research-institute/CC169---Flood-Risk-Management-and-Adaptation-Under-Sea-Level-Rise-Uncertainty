@@ -21,8 +21,12 @@
   This part evaluates climate adaptation projects for the three case studies. It is based on Section 4 of the report, and can be used to replicate the numerical results of Section 5. The relevant code can be found in R_scripts and it is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively. In the case study of New York City, we consider single investments of i) a barrier and dyke project and ii) a water proofing project, as well as a multiple investment when the two projects are considered together. Consideration of multiple investments is necessary for the formulation of dynamic investment pathways. In South East Queensland, we investigate the optimal time to invest in a house elevation project. In the Copenhagen,we consider the problem of investing in a dyke system where the ultimate height of thedyke is achieved in one go (a single investment) or achieved in two stages (a multistage investment).
 
   In each case, the file "Main.R" is used to execute the relevant section of the code:
-  1. "parameters.R": load the parameters needed for the project evalaution. The choice of the paramters depends on the estimation results for the generalized extreme value distribution in each case, and on previous findings in the literature.
-  2. "project evaluation.R" 
+  1. "parameters.R": loads the parameters needed for the project evalaution. The choice of the paramters depends on the estimation results for the generalized extreme value distribution in each case, and on previous findings in the literature.
+  2. "project evaluation.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an american option. 4 scenarios are considered: no climate change impact and growth exposure; climate change impact and growth exposure; high climate change impact and growth exposure; climate change impact and high growth exposure. For each climate adaptation policy analyzed, the code outputs the project value measured both as the Net Present Value and as an american option, stored in the variable results, and the investment boundaries. The variable results is used to construct the Tables in Section 5.The numerical approximation is done via binomial tree (see Section 4 of the report). 
+
+
+  3. 
+
 
 
 
