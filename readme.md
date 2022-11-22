@@ -15,7 +15,11 @@
   3. indicate the correct output file.
 
   # Part 3: Statistical Analysis of Extreme Sea Water Level Events
-  The maxima of the non-tidal residual (the time series of the sea level deseasonalized) can then be modelled using extreme value theory and the GAMLSS approach: the monthly maxima of the non tidal residual are assume to follow a generalzied extreme value theory distribution with the location and scale parameter depending on covariates. The shape parameter is assumed to be stationary for stability issues. The file called "GEV_regression.R" in R_scripts contains the codes for replicate what is presented in the report in section 3.5 and based on the framework discussed in sections 3.4, 3.4.1, and 3.4.2. The initial values for the maxiumum likelihood estimation are taken from the stationary model, i.e. the model without covariates. Covariates selection is done following the discussion in section 3.4.2 of the report. The significativity of each coeffcient is investigated using a likelihood ratio test via the function "LR_test_MaxTideRes" in the R file. Results are stored in model_nyc, model_bris, and model_den.
+  The maxima of the non-tidal residual (the time series of the sea level deseasonalized) can then be modelled using extreme value theory and the GAMLSS approach: the monthly maxima of the non tidal residual are assume to follow a generalzied extreme value theory distribution with the location and scale parameters depending on covariates. The shape parameter is assumed to be stationary for stability issues. The file called "GEV_regression.R" in R_scripts contains the codes for replicate what is presented in the report in section 3.5 and based on the framework discussed in sections 3.4, 3.4.1, and 3.4.2. The initial values for the maxiumum likelihood estimation are taken from the stationary model, i.e. the model without covariates. Covariates selection is done following the discussion in section 3.4.2 of the report. The significativity of each coeffcient is investigated using a likelihood ratio test via the function "LR_test_MaxTideRes" in the R file. Results are stored in model_nyc, model_bris, and model_den. 
+
+  # Part 4: Climate Adaptation Project Evaluation
+
+
 
 
 

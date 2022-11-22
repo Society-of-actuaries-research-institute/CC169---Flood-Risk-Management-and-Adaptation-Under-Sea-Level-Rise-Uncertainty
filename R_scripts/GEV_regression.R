@@ -87,7 +87,7 @@ LR_test_MaxTideRes = function(covariates, covariates.list.location, covariates.l
   
 }
 ################################ NYC ##########################################
-setwd("../data/nyc")
+setwd("./data/nyc")
 
 
 data_hourly =  read.csv(file = paste("hourly_series_predict", ".csv", sep=""),
@@ -293,7 +293,7 @@ pvalue_results_nyc = LR_test_MaxTideRes(covariates = covariates,
 
 ################################ CPH ##########################################
 
-setwd("../data/cph")
+setwd("./data/cph")
 
 
 data_hourly =  read.csv(file = paste("hourly_series_predict_den", ".csv", sep=""),
@@ -520,7 +520,7 @@ model_den = fevd(x = MaxTideResDeTrend,
 #################################### SEQ ###########################################
 
 
-setwd("../data/seq")
+setwd("./data/seq")
 
 
 data_hourly =  read.csv(file = paste("hourly_series_predict_bris", ".csv", sep=""),
