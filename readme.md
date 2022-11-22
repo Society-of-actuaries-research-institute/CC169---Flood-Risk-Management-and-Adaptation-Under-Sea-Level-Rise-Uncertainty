@@ -8,4 +8,9 @@
 
  # Part 1: Deseasonalization
 
-  Sea water level are deseasonalized using the matlab function "deseasonalization_matlab.m" in the folder matlab_scripts. This function is based on the Utide package in R by Codiga (2011). To run the code, modifiy the comment  
+  Sea water level are deseasonalized using the matlab function "deseasonalization_matlab.m" in the folder matlab_scripts. This function is based on the Utide package in R by Codiga (2011). The function takes the sea level as input and preduces
+
+   When running this function, be sure to:
+  1. indicate correctly the input file corresponding to the case study;
+  2. use the correct latitude values;
+  3. indicate the correct output file.
