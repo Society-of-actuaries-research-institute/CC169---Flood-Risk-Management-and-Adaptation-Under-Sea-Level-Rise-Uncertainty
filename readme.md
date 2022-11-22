@@ -1,7 +1,6 @@
  # Code for flood risk project using real option analysis
 
- # This repository contains the relevant code for the project on flood risk and real option analysis
- # There are several parts. 
+ This repository contains the relevant code for the project on flood risk and real option analysis. There are several parts. 
 
  # Part 1: Data Collection
  The folder data contains the relevant data for the three case studies in New York City, South East Queensland, and Copenhagen. For sea level data we use hourly data available from the archives of the University of Hawaii Sea Level Centre (http://uhslc.soest.hawaii.edu). Climate indices used in this study are:  NAO and the Ni ̃no 3.4 indices for the US, the SCA for Europe, and  the AAO, the IOD and the SOI for Australia. These indices are collected from different sources, and stored in the relevant data folders.
@@ -14,3 +13,6 @@
   1. indicate correctly the input file corresponding to the case study;
   2. use the correct latitude values;
   3. indicate the correct output file.
+
+  # Part 2: Statistical Analysis of Extreme Sea Water Level Events
+  The maxima of the non-tidal residual (the time series of the sea level deseasonalized) can then be modelled using extreme value theory and the GAMLSS approach: the monthly maxima of the non tidal residual are assume to follow a generalzied extreme value theory distribution with the location and scale parameter depending on covariates. The shape parameter is assumed to be stationary for stability issues.
