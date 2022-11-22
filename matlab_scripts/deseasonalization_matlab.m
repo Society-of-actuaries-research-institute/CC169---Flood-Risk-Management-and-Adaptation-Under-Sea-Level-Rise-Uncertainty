@@ -1,7 +1,9 @@
 clc;
 clear;
 %==== Import data ==========
-filename = 'hourly_series_2015_bris.csv';
+filename = 'hourly_series_2014.csv'; % If in NYC
+%filename = 'hourly_series_2015_bris.csv'; 
+%filename = 'hourly_series_2015_bris.csv';
 opts = detectImportOptions(filename);
 opts.VariableTypes{1} = 'char';
 % opts = setvaropts(opts,'time', ...
@@ -16,6 +18,8 @@ t_raw=datenum(A.time,'yyyy-mm-dd HH:MM:SS' );
 [~,id] = unique(t_raw);
 sl_raw=A.wl;
 cnstit='auto';
+lat = 40.42; % If in NYC
+ 
 lat =-24.76; %positive number if N; negative number if S
 coef = ut_solv ( t_raw(id), sl_raw(id),[],lat, cnstit, 'NoTrend'); % we use 'NoTrend' since data is already detrended.
 
@@ -30,6 +34,10 @@ B = readtable(filename, opts);
 t_fit=datenum(B.time,'yyyy-mm-dd HH:MM:SS' );
 [ sl_fit, ~ ] = ut_reconstr ( t_fit, coef ); % sl_fit is the tide component predicted for data set 'hourly_series.csv'.
 B.wlh = sl_fit;
-writetable(B,'hourly_series_predict_bris.csv','Delimiter',',');
+%writetable(B,'hourly_series_predict_bris.csv','Delimiter',',');
+%writetable(B,'hourly_series_predict_bris.csv','Delimiter',',');
+%writetable(B,'hourly_series_predict_bris.csv','Delimiter',',');
+
+
 plot(B.wlh)
 
