@@ -25,7 +25,7 @@
   2. "project evaluation.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an american option. 4 scenarios are considered: no climate change impact and growth exposure; climate change impact and growth exposure; high climate change impact and growth exposure; climate change impact and high growth exposure. For each climate adaptation policy analyzed, the code outputs the project value measured both as the Net Present Value and as an american option, stored in the variable results, and the investment boundaries. The variable results is used to construct the Tables in Section 5.The numerical approximation is done via binomial tree (see Section 4 of the report). 
 
 
-  3. 
+  3. addd
 
 
 
