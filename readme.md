@@ -22,10 +22,8 @@
 
   In each case, the file "Main.R" is used to execute the relevant section of the code:
   1. "parameters.R": loads the parameters needed for the project evalaution. The choice of the paramters depends on the estimation results for the generalized extreme value distribution in each case, and on previous findings in the literature.
-  2. "project evaluation.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an american option. 4 scenarios are considered: no climate change impact and growth exposure; climate change impact and growth exposure; high climate change impact and growth exposure; climate change impact and high growth exposure. For each climate adaptation policy analyzed, the code outputs the project value measured both as the Net Present Value and as an american option, stored in the variable results, and the investment boundaries. The variable results is used to construct the Tables in Section 5.The numerical approximation is done via binomial tree (see Section 4 of the report). 
-
-
-  3. addd
+  2. "investment_analysis.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an american option. 4 scenarios are considered: no climate change impact and growth exposure; climate change impact and growth exposure; high climate change impact and growth exposure; climate change impact and high growth exposure. For each climate adaptation policy analyzed, the code outputs the project value measured both as the Net Present Value and as an american option, stored in the variable results, and the investment boundaries. The variable results is used to construct the Tables in Section 5.The numerical approximation is done via binomial tree (see Section 4 of the report). 
+  3. "sensitivity_analysis_discount.R", "sensitivity_analysis_slr.R", "sensitivity_analysis_sigma.R": these three files contains the code relevant to the sensitivity analysis with repect to the dscount rate, the sea level rise, and the sea level rise uncertainty. Each fine can be run separately, and the variable result is used to construct the Tables in Section 5 of the report.
 
 
 
