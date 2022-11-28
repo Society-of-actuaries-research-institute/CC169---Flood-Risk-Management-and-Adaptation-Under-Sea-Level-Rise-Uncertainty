@@ -9,7 +9,19 @@ tab=  './tables/'
 fig=  './figures/'
 file.sources = list.files(fpath, pattern="*.R$",full.names=TRUE, ignore.case=TRUE)
 invisible(sapply(file.sources,source))
+
+#== 1. Get parameters for SEQ case study
 source(paste("parameters.R",sep=''))
+
+#== 2. Project evaluation using binomial tree
+source(paste("investment_analysis.R",sep=''))
+
+
+#== 3. Sensitivity Analysis Project Evaluation
+source(paste("sensitivity_analysis_discount.R",sep=''))
+source(paste("sensitivity_analysis_slr.R",sep=''))
+source(paste("sensitivity_analysis_sigma.R",sep=''))
+
 
 #== 1. De-tide ===
 #source(paste("detide.R",sep=''))
