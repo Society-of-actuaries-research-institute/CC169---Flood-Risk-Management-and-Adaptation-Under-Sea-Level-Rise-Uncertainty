@@ -1,5 +1,4 @@
 rm(list=ls(all=TRUE)) 
-#setwd("C:/E drive/Flood/SOA/sent/Report/empirical/nyc")
 setwd("./project_evaluation_nyc")
 opath= './output/'
 fpath= './../function/'

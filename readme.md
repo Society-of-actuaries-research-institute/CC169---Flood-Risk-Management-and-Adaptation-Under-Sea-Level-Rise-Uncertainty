@@ -33,6 +33,7 @@
   1. insurance premiums covering losses due to extreme sea level rise for 12 mionths;
   2. insurance premiums covering lossses due to extreme sea level rise, up to a top cover limit, for 12 months.
   
+  
  
 
 
