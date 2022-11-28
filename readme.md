@@ -29,14 +29,14 @@
 
   This section provides wwith the code relevant for the simualtion study on the effect of climate adaptation
   policies analyzed in the previous part, on insurance premium distribution, and optimal investment timing in the three
-  cities. Two typologies of insurance contracts are considered:
+  cities. The code can be used to replicate the numerical results of Section 6 Two typologies of insurance contracts are considered:
   1. insurance premiums covering losses due to extreme sea level rise for 12 mionths;
   2. insurance premiums covering lossses due to extreme sea level rise, up to a top cover limit, for 12 months.
 
   There are two relevant files for each case study:
-  
+
   1. "loss_distribution_NYC.R" ("loss_distribution_SEQ.R" and "loss_distribution_CPH.R"): it simualtes the insurance premium evolution over time, with and without the climate adaptation policy, and then compares the distributions. The distrubtion of the optimal investment timing is also obtained via simulation.
-  2. "sensitivity_analysis_loss_distribution.R": it repeats the same excercise but considering three scenarios fro the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a neutral scenario, where the mean sea level corresponds to the estimated one in each city; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 210. Relevant files are stored in t
+  2. "sensitivity_analysis_loss_distribution.R": it repeats the same excercise but considering three scenarios fro the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a neutral scenario, where the mean sea level corresponds to the estimated one in each city; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 210. The relevant code can be found in R_scripts and it is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively.
   
  
 
