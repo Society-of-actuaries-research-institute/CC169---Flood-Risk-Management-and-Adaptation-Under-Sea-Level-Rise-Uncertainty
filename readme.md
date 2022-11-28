@@ -27,9 +27,17 @@
 
   # Part 5: Premium Distribution Evolution
 
+  This section provides wwith the code relevant for the simualtion study on the effect of climate adaptation
+  policies on insurance premium distribution, and optimal investment timing in the three
+  cities. Two typologies of insurance contracts are considered:
+  1. insurance premiums covering losses due to extreme sea level rise for 12 mionths;
+  2. insurance premiums covering lossses due to extreme sea level rise, up to a top cover limit, for 12 months.
   
+ 
 
 
+
+  
 
 
 
