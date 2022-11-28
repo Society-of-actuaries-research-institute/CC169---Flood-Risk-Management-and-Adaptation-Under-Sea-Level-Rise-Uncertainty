@@ -23,25 +23,9 @@ source(paste("sensitivity_analysis_slr.R",sep=''))
 source(paste("sensitivity_analysis_sigma.R",sep=''))
 
 
-#== 1. De-tide ===
-#source(paste("detide.R",sep=''))
-
-#== 2. Estimate GEV ====
-#source(paste("estimation_gev.R",sep=''))
-
-#== 3 Estimate loss curve ===
-#source(paste("damage_curve.R",sep=''))
-
-#== 4. Market risk premium for mean sea level process ===
-#source(paste("risk_premium.R",sep=''))
-
-#=== 5. Single Investment===
-source(paste("investment_analysis.R",sep=''))
-source(paste("sensitivity_singleinvestment.R",sep=''))
-source(paste("sensitivity_singleinvestment_sigma.R",sep=''))
-
+#== 4. Loss Distribution in 100 Years
 source(paste("loss_distribution_QLD.R",sep=''))
-
+#== 5. Sensistivity Analysis Loss distribution
 source(paste("sensitivity_analysis_loss_distribution.R", sep =''))
 
 
