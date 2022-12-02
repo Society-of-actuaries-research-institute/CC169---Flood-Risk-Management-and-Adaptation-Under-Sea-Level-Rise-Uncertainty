@@ -38,8 +38,6 @@
   1. "loss_distribution_NYC.R" ("loss_distribution_SEQ.R" and "loss_distribution_CPH.R"): it simualtes the insurance premium evolution over time, with and without the climate adaptation policy, and then compares the distributions. The distrubtion of the optimal investment timing is also obtained via simulation.
   2. "sensitivity_analysis_loss_distribution.R": it repeats the same excercise but considering three scenarios fro the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a neutral scenario, where the mean sea level corresponds to the estimated one in each city; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 210. The relevant code can be found in R_scripts and it is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively.
 
-
-  1
   
  
 
