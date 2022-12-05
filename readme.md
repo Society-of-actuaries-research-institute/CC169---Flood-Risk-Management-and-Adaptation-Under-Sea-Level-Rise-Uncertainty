@@ -1,6 +1,6 @@
  # Code for flood risk project using real option analysis
 
- This repository contains the relevant code for the project on flood risk and real option analysis. There are several parts. 
+ This repository contains the relevant code for the project on flood risk and real option analysis. There are several parts. Each part contains codes that can be used to replicate results shown in the report. We refer to the relevant section of the report for the interpretation of numerical results and theoretical background.
 
  # Part 1: Data Collection
  The folder data contains the relevant data for the three case studies in New York City, South East Queensland, and Copenhagen. For sea level data we use hourly data available from the archives of the University of Hawaii Sea Level Centre (http://uhslc.soest.hawaii.edu). Climate indices used in this study are:  NAO and the Ni ̃no 3.4 indices for the US, the SCA for Europe, and  the AAO, the IOD and the SOI for Australia. These indices are collected from different sources, and stored in the relevant data folders.
@@ -47,6 +47,8 @@
   1. Run "deseasinalization_matlab.m" in data_processing_example
   2. Run "GEV_regression_example.R" in data_processing_example
   3. Run "Main_example.R" in project_evaluation_nyc_example
+
+  If interested in only some specific parts of the project evaluation, single components can be run separately. The outputs of each subsection of the code can then be exported as tables and figures, using, for instance ggplot or others plotting packages or visualization devices.
 
 
 
