@@ -39,7 +39,9 @@
   2. "sensitivity_analysis_loss_distribution.R": it repeats the same excercise but considering three scenarios fro the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a neutral scenario, where the mean sea level corresponds to the estimated one in each city; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 210. The relevant code can be found in R_scripts and it is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively.
 
   # Example: Consturction of a barrier and dike to protect New York City
-  This section explains how to use the code to evaluate the cosntruction of barrier and dike to protect the city of New York.
+  This section explains how to use the code to evaluate the cosntruction of barrier and dike to protect the city of New York. The files to run the example are stored into two folders:
+  1. data_processing
+  2.
 
 
 
