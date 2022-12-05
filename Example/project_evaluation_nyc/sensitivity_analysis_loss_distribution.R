@@ -81,7 +81,7 @@ for(i in 1: nrow(alpha_simulated_no_policy)){
 }
 
 
-###### DYKE ########
+###### DIKE ########
 # Load Boundary
 boundary = read.csv(paste(opath, "threshold_nyc_dyke.csv", sep=""), sep=",", header=TRUE)
 # monthly comparison
