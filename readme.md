@@ -44,7 +44,9 @@
   2. project_evaluation_nyc_example
 
   The correct order of esxecuting the files is the following:
-  
+  1. Run "deseasinalization_matlab.m" in data_processing_example
+  2. Run "GEV_regression_example.R" in data_processing_example
+  3. Run "Main_example.R" in project_evaluation_nyc_example
 
 
 
