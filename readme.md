@@ -40,8 +40,11 @@
 
   # Example: Consturction of a barrier and dike to protect New York City
   This section explains how to use the code to evaluate the cosntruction of barrier and dike to protect the city of New York. The files to run the example are stored into two folders:
-  1. data_processing
-  2.
+  1. data_processing_example
+  2. project_evaluation_nyc_example
+
+  The correct order of esxecuting the files is the following:
+  
 
 
 
