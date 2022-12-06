@@ -1,5 +1,5 @@
 
-#=== Dyke Stage 1 ===
+#=== Dike Stage 1 ===
 I <- I1
 kappa =kappa2; k1=k1;
 #mus <- c(0,mu0,0,mu0)
@@ -50,7 +50,7 @@ for (i in 1:4){
   result[3,2*i] <- result[2,2*i] - result[1,2*i] #difference
   if(i==4){
     #write.table(data, file = paste(mpath, "gvalue", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
-    png(file = paste(fig, "projectvalue_cph_dyke_stage1.png", sep=""),
+    png(file = paste(fig, "projectvalue_cph_dike_stage1.png", sep=""),
         res = 200,
         width = 1200,
         height = 800)
@@ -64,7 +64,7 @@ for (i in 1:4){
 
 names(B0) <- c('time', 'c1', 'c2', 'c3', 'c4')
 write.table(B0,
-            file = paste(opath, "threshold_cph_dyke_stage1", ".csv", sep=""),
+            file = paste(opath, "threshold_cph_dike_stage1", ".csv", sep=""),
             sep=",",
             row.names = FALSE,
             col.names = TRUE)
@@ -80,8 +80,8 @@ addtorow$command <- c(head0)
 result[,1] <- c('NPV','Total value with optionality','Difference')
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('analysis_cph_dyke',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 5, label=paste('analysis_cph_dike',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods. We report (in billion Euro) the NPV, 
                   the total value with optionality and the difference of the two values. 
                   Results are reported for four cases: i) no climatic change and zero exposure growth, 
@@ -101,11 +101,11 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "analysis_cph_dyke_stage1", ".tex", sep=""), scalebox = 0.80)
+      file = paste(tab, "analysis_cph_dike_stage1", ".tex", sep=""), scalebox = 0.80)
 
 
 #== Exercise boundary ===
-data <- read.csv(paste(opath, "threshold_cph_dyke_stage1.csv", sep=""), sep=",", header=TRUE)
+data <- read.csv(paste(opath, "threshold_cph_dike_stage1.csv", sep=""), sep=",", header=TRUE)
 
 #idx = seq(14,
 #          114,
@@ -121,7 +121,7 @@ data <- na.omit(data)
 colour <- c('black', 'green', 'blue', 'red')
 style <- seq(1,4,1)
 
-png(file = paste(fig, "exerciseboundary_cph_dyke_stage1.png", sep=""),
+png(file = paste(fig, "exerciseboundary_cph_dike_stage1.png", sep=""),
     res = 200,
     width = 1400,
     height = 1000)
@@ -150,7 +150,7 @@ dev.off()
 
 
 
-#== Dyke Second Stage ===
+#== Dike Second Stage ===
 I <- I2; k=k2
 kappa =kappa1; 
 a0=a1; b0=b1; 
@@ -196,7 +196,7 @@ for (i in 1:4){
   result[3,2*i] <- result[2,2*i] - result[1,2*i] #difference
   if(i==4){
     #write.table(data, file = paste(mpath, "gvalue", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
-    png(file = paste(fig, "projectvalue_cph_dyke_stage_2.png", sep=""), res = 200, width = 1200, height = 800)
+    png(file = paste(fig, "projectvalue_cph_dike_stage_2.png", sep=""), res = 200, width = 1200, height = 800)
     par(mfrow=c(1,1), mar=c(4,4,2,2)+0.1) #Margin count from xaxis, yaxis and so on
     plot(data[,1], data[,2], xlab = expression(alpha), ylab = 'Project value (Euro billion)', type='l')
     dev.off()
@@ -222,8 +222,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('analysis_cph_dyke_stage2',sep=''),
-                  caption=paste("Investment analysis for dyke  using 
+x.width <- xtable(result,digit = 5, label=paste('analysis_cph_dike_stage2',sep=''),
+                  caption=paste("Investment analysis for dike  using 
                   NPV rule and real options methods. We report (in billion Euro) the NPV, 
                   the total value with optionality and the difference of the two values. 
                   Results are reported for four cases: i) no climatic change and zero exposure growth, 
@@ -243,7 +243,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "analysis_cph_dyke_stage2", ".tex", sep=""), scalebox = 0.80)
+      file = paste(tab, "analysis_cph_dike_stage2", ".tex", sep=""), scalebox = 0.80)
 
 
 #== Exercise boundary ===
@@ -256,7 +256,7 @@ data <- na.omit(data)
 colour <- c('black', 'green', 'blue', 'red')
 style <- seq(1,4,1)
 xtick = seq(20,100,by = 20 )
-png(file = paste(fig, "exerciseboundary_cph_dyke_stage2.png", sep=""),
+png(file = paste(fig, "exerciseboundary_cph_dike_stage2.png", sep=""),
     res = 200,
     width = 1400,
     height = 1000)
@@ -284,7 +284,7 @@ dev.off()
 
 
 
-#== Dyke All in one stage ==#
+#== Dike All in one stage ==#
 
 I <- I1and2; k=k2
 kappa =kappa1; 
@@ -331,7 +331,7 @@ for (i in 1:4){
   result[3,2*i] <- result[2,2*i] - result[1,2*i] #difference
   if(i==4){
     #write.table(data, file = paste(mpath, "gvalue", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
-    png(file = paste(fig, "projectvalue_cph_dyke_all_in_one.png", sep=""),
+    png(file = paste(fig, "projectvalue_cph_dike_all_in_one.png", sep=""),
         res = 200,
         width = 1200,
         height = 800)
@@ -362,7 +362,7 @@ addtorow$command <- c(head0)
 
 library(xtable)
 x.width <- xtable(result,digit = 5, label=paste('analysis_cph_all_in_one',sep=''),
-                  caption=paste("Investment analysis for Dyke using 
+                  caption=paste("Investment analysis for Dike using 
                   NPV rule and real options methods. We report (in billion Euros) the NPV, 
                   the total value with optionality and the difference of the two values. 
                   Results are reported for four cases: i) no climatic change and zero exposure growth, 
@@ -387,7 +387,7 @@ print(x.width,hline.after = c(nrow(result)),
       floating = TRUE,
       include.rownames=FALSE,
       include.colnames=FALSE,
-      file = paste(tab, "analysis_cph_dyke_all_in_one", ".tex", sep=""),
+      file = paste(tab, "analysis_cph_dike_all_in_one", ".tex", sep=""),
       scalebox = 0.80)
 
 
@@ -425,15 +425,15 @@ dev.off()
 
 
 
-#== Sequencing: proofing-dyke and dyke-proofing
-# proofing is indexed 1, dyke is indexed 2.
+#== Sequencing: proofing-dike and dike-proofing
+# proofing is indexed 1, dike is indexed 2.
 
 result <- data.frame(matrix(NA, 3, 12))
 result[,1] <- c('NPV','Total value with optionality','Difference')
 #=== Investment Analysis ===
-# dyke after proofing:proportion (kappa1*b1)/b2 of total exposure has been protected by proofing, 
-# so the relevant damage curve for dyke is [1-(kappa1*b1)/b2]b2 = b2-kappa1*b1
-# proofing after dyke: benefit of proofing = D(k2,u,L) - D(k1,u,L)
+# dike after proofing:proportion (kappa1*b1)/b2 of total exposure has been protected by proofing, 
+# so the relevant damage curve for dike is [1-(kappa1*b1)/b2]b2 = b2-kappa1*b1
+# proofing after dike: benefit of proofing = D(k2,u,L) - D(k1,u,L)
 # so put flood threshold before investment as k2
 # Investment cost for sequencing
 I1 = (160000 +  1371 * (k1^2))/1000000000
@@ -441,14 +441,14 @@ I12 = (160000 +  1371 * (k2)^2 +   1371 * (2*k1 * k2))/1000000000
 I2 = (160000 +  1371 * (k2^2))/1000000000
 I21 = (160000 +  1371 * (k1)^2 + 1371 * (2*k1 * k2))/1000000000
 
-# INvestment Cost of building the k1+k2 heihgt dyke in one go ( saving on fixed cost)
+# INvestment Cost of building the k1+k2 heihgt dike in one go ( saving on fixed cost)
 
 #I12 = (1600000 +  1371 * (k1^2) + 1371 * (2*k1^2 ) + 1371 * (k1^2)) /1000000000 
 
 
 
 
-# order of vector below: c(proofing, dyke after proofing, dyke, proofing after dyke)
+# order of vector below: c(proofing, dike after proofing, dike, proofing after dike)
 Is <- c(I1, I12, I2, I12)
 # flood threshold before investment
 x0 <- c(u,
@@ -530,7 +530,7 @@ plot(c(data$time[1], data$time[nrow(data)]), c(min(data[,2:3]), max(data[,2:3])+
 for (i in 1:2){
   lines(data[,1], data[,1+i], col=colour[i], lty=style[i])
 }
-legend('topright',legend=c("Dyke Stage 1", "Dyke Stage 2"),
+legend('topright',legend=c("Dike Stage 1", "Dike Stage 2"),
        lty=style,col=colour, bty = "n") 
 #title(main="Frequency mitigation", font.main=1)
 dev.off()
@@ -550,18 +550,18 @@ plot(c(data$time[1], data$time[nrow(data)]), c(min(data[,4:5]), max(data[,4:5])+
 for (i in 1:2){
   lines(data[,1], data[,3+i], col=colour[i], lty=style[i])
 }
-legend('topright',legend=c("Dyke Stage 2","Dyke Stage 1"),
+legend('topright',legend=c("Dike Stage 2","Dike Stage 1"),
        lty=style,col=colour, bty = "n") 
 #title(main="Frequency mitigation", font.main=1)
 dev.off()
 #----------------------
 
 #=== Make Latex table ====
-head0 <- paste("\\hline &", "\\multicolumn{5}{c}{Dyke Stage 1 then Dyke Stage 2}", "&&",
-               "\\multicolumn{5}{c}{Dyke Stage 2 then Dyke Stage 1}", "\\\\","\n",
+head0 <- paste("\\hline &", "\\multicolumn{5}{c}{Dike Stage 1 then Dike Stage 2}", "&&",
+               "\\multicolumn{5}{c}{Dike Stage 2 then Dike Stage 1}", "\\\\","\n",
                "\\cmidrule{2-6} \\cmidrule{8-12}" ,sep="")
 
-head1 <- paste("&", "Dyke Stage 1", "&&","Dyke Stage 2", '&&', "Total",'&&', "Dyke Stage 2", "&&","Dyke Stage 1", '&&', "Total",
+head1 <- paste("&", "Dike Stage 1", "&&","Dike Stage 2", '&&', "Total",'&&', "Dike Stage 2", "&&","Dike Stage 1", '&&', "Total",
                "\\\\","\n","\\cmidrule{2-2} \\cmidrule{4-4} \\cmidrule{6-6} \\cmidrule{8-8} \\cmidrule{10-10} \\cmidrule{12-12}", sep="")
 addtorow <- list()
 addtorow$pos <- list()
