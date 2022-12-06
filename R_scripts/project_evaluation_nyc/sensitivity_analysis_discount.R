@@ -1,7 +1,7 @@
 
 rs=seq(0.02,0.06,0.01); 
 I1s <- rep(I1,length(rs)); I2s <- 13+0.118/rs
-#=== Barrier and Dyke ===
+#=== Barrier and Dike ===
 Is <- I2s;k=k2;
 kappa =kappa2; 
 mu <- mu0
@@ -44,8 +44,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 2, label=paste('sensitivity_dyke_nyc_discount',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 2, label=paste('sensitivity_dike_nyc_discount',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -62,7 +62,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_nyc_discount", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_nyc_discount", ".tex", sep=""), scalebox = 0.90)
 
 
 
@@ -132,7 +132,7 @@ print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow,
       file = paste(tab, "sensitivity_elevation_nyc_discount", ".tex", sep=""), scalebox = 0.90)
 
 
-#== Sequencing: proofing-dyke and dyke-proofing
+#== Sequencing: proofing-dike and dike-proofing
 mu <- mu0
 gamma <- gamma0
 
@@ -201,8 +201,8 @@ for(ii in 1:length(rs)){
 
 
 #=== Make Latex table ====
-head0 <- paste("\\hline &", paste("\\multicolumn{", length(rs)*2-1, "}{c}{Flood-proofing then dyke}",sep=''),
-               "&&",paste("\\multicolumn{", length(rs)*2-1, "}{c}{Dyke then flood-proofing}",sep=''),
+head0 <- paste("\\hline &", paste("\\multicolumn{", length(rs)*2-1, "}{c}{Flood-proofing then dike}",sep=''),
+               "&&",paste("\\multicolumn{", length(rs)*2-1, "}{c}{Dike then flood-proofing}",sep=''),
                "\\\\","\n",
                paste(
                  paste("\\cmidrule{2-",length(rs)*2, "}",sep=''),

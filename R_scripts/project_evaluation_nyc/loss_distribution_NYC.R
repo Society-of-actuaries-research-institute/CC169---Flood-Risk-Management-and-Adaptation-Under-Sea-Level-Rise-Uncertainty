@@ -79,9 +79,9 @@ for(i in 1: nrow(alpha_simulated_no_policy)){
 }
 
 
-###### DYKE ########
+###### DIKE ########
 # Load Boundary
-boundary = read.csv(paste(opath, "threshold_nyc_dyke.csv", sep=""), sep=",", header=TRUE)
+boundary = read.csv(paste(opath, "threshold_nyc_dike.csv", sep=""), sep=",", header=TRUE)
 # monthly comparison
 
 idx_monthly =round( seq(3,100, by = 1/12)*1000)
@@ -91,18 +91,18 @@ boundary = boundary[idx_monthly,]
 boundary_check  = boundary$c4
 
 
-alpha_simulated_dyke = alpha_simulated[(12*3):(12*100),]
+alpha_simulated_dike = alpha_simulated[(12*3):(12*100),]
 
-dyke = matrix(0,
-                ncol = ncol(alpha_simulated_dyke),
-                nrow = nrow(alpha_simulated_dyke))
+dike = matrix(0,
+                ncol = ncol(alpha_simulated_dike),
+                nrow = nrow(alpha_simulated_dike))
 
 top_cover = matrix(0,
-                   ncol = ncol(alpha_simulated_dyke),
-                   nrow = nrow(alpha_simulated_dyke))
+                   ncol = ncol(alpha_simulated_dike),
+                   nrow = nrow(alpha_simulated_dike))
 
 stopping_time = matrix(0,
-                       nrow = ncol(alpha_simulated_dyke))
+                       nrow = ncol(alpha_simulated_dike))
 
 results = data.frame(matrix(0,
                             nrow = 2,
@@ -116,43 +116,43 @@ colnames(results) = c("0%",
 
 
 
-for ( j in 1:ncol(alpha_simulated_dyke)){
+for ( j in 1:ncol(alpha_simulated_dike)){
   check = 0
-  for ( i in 1:nrow(alpha_simulated_dyke)){
+  for ( i in 1:nrow(alpha_simulated_dike)){
      
-   if ((alpha_simulated_dyke[i,j]<=boundary_check[i]) && (check ==0)){
+   if ((alpha_simulated_dike[i,j]<=boundary_check[i]) && (check ==0)){
      
-     dyke[i,j] = (1+delta) * exp(12* g) * Dfn(x = u,
+     dike[i,j] = (1+delta) * exp(12* g) * Dfn(x = u,
                      a = a,
                      b = b,
                      u = u,
-                     alpha  = alpha_simulated_dyke[i,j],
+                     alpha  = alpha_simulated_dike[i,j],
                      s = scale,
                      xi = xi)
      
-     top_cover[i,j] = dyke[i,j] - (1+delta) * exp(12* g) * Dfn(x = ustar,
+     top_cover[i,j] = dike[i,j] - (1+delta) * exp(12* g) * Dfn(x = ustar,
                                                               a = a,
                                                               b = b,
                                                               u = u,
-                                                              alpha  = alpha_simulated_dyke[i,j],
+                                                              alpha  = alpha_simulated_dike[i,j],
                                                               s = scale,
                                                               xi = xi)
      
      
    } else {
-     dyke[i,j] =  (1+delta) * exp(12* g) *  Dfn(x = u+k2,
+     dike[i,j] =  (1+delta) * exp(12* g) *  Dfn(x = u+k2,
                       a = a,
                       b = b,
                       u = u,
-                      alpha  = alpha_simulated_dyke[i,j],
+                      alpha  = alpha_simulated_dike[i,j],
                       s = scale,
                       xi = xi)
      
-     top_cover[i,j] = dyke[i,j] - (1+delta) * exp(12* g) *  Dfn(x = ustar+k2,
+     top_cover[i,j] = dike[i,j] - (1+delta) * exp(12* g) *  Dfn(x = ustar+k2,
                                                                 a = a,
                                                                 b = b,
                                                                 u = u,
-                                                                alpha  = alpha_simulated_dyke[i,j],
+                                                                alpha  = alpha_simulated_dike[i,j],
                                                                 s = scale,
                                                                 xi = xi)
      
@@ -176,33 +176,33 @@ LM_nopolicy = function(alpha, a, b,u){
   return(L)
 }
 
-LM_dyke = function(alpha, a, b,u,k){
+LM_dike = function(alpha, a, b,u,k){
   u = u + k
   c=a*u*u -b*u
   L =max( a * (alpha)^2 + b*(alpha) + c,0)
   return(L)
 }
 
-LossesNoPolicy = unlist(mapply(function(i) LM_nopolicy(alpha = alpha_simulated_dyke[1165,i],
+LossesNoPolicy = unlist(mapply(function(i) LM_nopolicy(alpha = alpha_simulated_dike[1165,i],
                                                        a = a,
                                                        b= b,
                                                        u =u),
-                               1:length(alpha_simulated_dyke[1165,]),
+                               1:length(alpha_simulated_dike[1165,]),
                                SIMPLIFY = FALSE))
 
-LossesPolicy = unlist(mapply(function(i) LM_dyke(alpha = alpha_simulated_dyke[1165,i],
+LossesPolicy = unlist(mapply(function(i) LM_dike(alpha = alpha_simulated_dike[1165,i],
                                                       a = a,
                                                       b = b,
                                                       u = u,
                                                       k = k2),
-                             1:length(alpha_simulated_dyke[1165,]),
+                             1:length(alpha_simulated_dike[1165,]),
                              SIMPLIFY = FALSE))
 
 df = data.frame(Losses = c(LossesNoPolicy,
                            LossesPolicy),
                 Adaptation = c(rep("No Adaptation",
                                    length(LossesNoPolicy)),
-                               rep("Dyke",
+                               rep("Dike",
                                    length(LossesPolicy))),
                 MeanNoPolicy = mean(LossesNoPolicy),
                 MeanPolicy = mean(LossesPolicy))
@@ -228,7 +228,7 @@ f = f + xlab("Billion Dollars") + ylab("Loss Disitrubtion")
 
 #f
 
-ggsave(filename = "Loss_Distribution_dyke_NYC.eps",
+ggsave(filename = "Loss_Distribution_dike_NYC.eps",
        plot = f,
        device="eps",
        dpi = 600)
@@ -260,50 +260,50 @@ idx_policy = seq(7*12,1165,
 
 
 df = data.frame(value = c( no_policy[idx_nopolicy[1],],
-                           dyke[idx_policy[1],],
+                           dike[idx_policy[1],],
                            no_policy[idx_nopolicy[2],],
-                           dyke[idx_policy[2],],
+                           dike[idx_policy[2],],
                            no_policy[idx_nopolicy[3],],
-                           dyke[idx_policy[3],],
+                           dike[idx_policy[3],],
                            no_policy[idx_nopolicy[4],],
-                           dyke[idx_policy[4],],
+                           dike[idx_policy[4],],
                            no_policy[idx_nopolicy[5],],
-                           dyke[idx_policy[5],],
+                           dike[idx_policy[5],],
                            no_policy[idx_nopolicy[6],],
-                           dyke[idx_policy[6],],
+                           dike[idx_policy[6],],
                            no_policy[idx_nopolicy[7],],
-                           dyke[idx_policy[7],],
+                           dike[idx_policy[7],],
                            no_policy[idx_nopolicy[8],],
-                           dyke[idx_policy[8],],
+                           dike[idx_policy[8],],
                            no_policy[idx_nopolicy[9],],
-                           dyke[idx_policy[9],],
+                           dike[idx_policy[9],],
                            no_policy[idx_nopolicy[10],],
-                           dyke[idx_policy[10],]),
-                name = factor(c( rep(10, length(no_policy[idx_nopolicy[1],]) + length(dyke[idx_policy[1],]) ),
-                          rep(20, length(no_policy[idx_nopolicy[2],]) + length(dyke[idx_policy[2],]) ),
-                          rep(30, length(no_policy[idx_nopolicy[3],]) + length(dyke[idx_policy[3],]) ),
-                          rep(40, length(no_policy[idx_nopolicy[4],]) + length(dyke[idx_policy[4],]) ),
-                          rep(50, length(no_policy[idx_nopolicy[5],]) + length(dyke[idx_policy[5],]) ),
-                          rep(60, length(no_policy[idx_nopolicy[6],]) + length(dyke[idx_policy[6],]) ),
-                          rep(70, length(no_policy[idx_nopolicy[7],]) + length(dyke[idx_policy[7],]) ),
-                          rep(80, length(no_policy[idx_nopolicy[8],]) + length(dyke[idx_policy[8],]) ),
-                          rep(90, length(no_policy[idx_nopolicy[9],]) + length(dyke[idx_policy[9],]) ),
-                          rep(100, length(no_policy[idx_nopolicy[10],]) + length(dyke[idx_policy[10],]) ))),
+                           dike[idx_policy[10],]),
+                name = factor(c( rep(10, length(no_policy[idx_nopolicy[1],]) + length(dike[idx_policy[1],]) ),
+                          rep(20, length(no_policy[idx_nopolicy[2],]) + length(dike[idx_policy[2],]) ),
+                          rep(30, length(no_policy[idx_nopolicy[3],]) + length(dike[idx_policy[3],]) ),
+                          rep(40, length(no_policy[idx_nopolicy[4],]) + length(dike[idx_policy[4],]) ),
+                          rep(50, length(no_policy[idx_nopolicy[5],]) + length(dike[idx_policy[5],]) ),
+                          rep(60, length(no_policy[idx_nopolicy[6],]) + length(dike[idx_policy[6],]) ),
+                          rep(70, length(no_policy[idx_nopolicy[7],]) + length(dike[idx_policy[7],]) ),
+                          rep(80, length(no_policy[idx_nopolicy[8],]) + length(dike[idx_policy[8],]) ),
+                          rep(90, length(no_policy[idx_nopolicy[9],]) + length(dike[idx_policy[9],]) ),
+                          rep(100, length(no_policy[idx_nopolicy[10],]) + length(dike[idx_policy[10],]) ))),
                 Adaptation =  rep( c(rep("No Adaptation", length(no_policy[idx_nopolicy[1],])),
-                                rep("Dyke", length(dyke[idx_nopolicy[1],]))),10 )
+                                rep("Dike", length(dike[idx_nopolicy[1],]))),10 )
 
                 )
 
 df$Adaptation = factor(df$Adaptation,
                       levels = c("No Adaptation",
-                                 "Dyke"))
+                                 "Dike"))
 
 
 
 
 
 group.colors <- c("No Adaptation" = "#FF3333",
-                  "Dyke" = "#3361FF")
+                  "Dike" = "#3361FF")
 
 f = ggplot(df, aes( x = name,
                     y = value,
@@ -330,7 +330,7 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_dyke_time_NYC.eps",
+ggsave(filename = "Premium_Distribution_dike_time_NYC.eps",
        plot = f,
        device="eps",
        dpi = 600)
@@ -370,17 +370,17 @@ df = data.frame(value = c( no_policy_top_cover[idx_nopolicy[1],],
                                  rep(90, length(no_policy_top_cover[idx_nopolicy[9],]) + length(top_cover[idx_policy[9],]) ),
                                  rep(100, length(no_policy_top_cover[idx_nopolicy[10],]) + length(top_cover[idx_policy[10],]) ))),
                 Adaptation =  rep( c(rep("No Adaptation", length(no_policy_top_cover[idx_nopolicy[1],])),
-                                     rep("Dyke", length(top_cover[idx_nopolicy[1],]))),10 )
+                                     rep("Dike", length(top_cover[idx_nopolicy[1],]))),10 )
                 
 )
 
 df$Adaptation = factor(df$Adaptation,
                        levels = c("No Adaptation",
-                                  "Dyke"))
+                                  "Dike"))
 
 
 group.colors <- c("No Adaptation" = "#FF3333",
-                  "Dyke" = "#3361FF")
+                  "Dike" = "#3361FF")
 
 
 f = ggplot(df, aes( x = name,
@@ -406,7 +406,7 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_Top_cover_dyke_time_NYC.eps",
+ggsave(filename = "Premium_Distribution_Top_cover_dike_time_NYC.eps",
        plot = f,
        device="eps",
        dpi = 600)
@@ -418,13 +418,13 @@ ggsave(filename = "Premium_Distribution_Top_cover_dyke_time_NYC.eps",
 
 
 df = data.frame(value = c(  no_policy[1165,],
-                            dyke[1165,]),
+                            dike[1165,]),
                 Adaptation = c(rep("No Adaptation",
                                    length(no_policy[1165,])),
-                               rep("Dyke",
-                                   length(dyke[1165,]))),
+                               rep("Dike",
+                                   length(dike[1165,]))),
                 MeanNoPolicy = mean(no_policy[1165,]),
-                MeanPolicy = mean(dyke[1165,]))
+                MeanPolicy = mean(dike[1165,]))
 
 f = ggplot(df, aes( x = value,
                     color = Adaptation,
@@ -447,7 +447,7 @@ f = f + xlab("Billion Dollars") + ylab("Premium Disitrubtion")
 f
 
 
-ggsave(filename = "Premium_Distribution_Dyke_NYC.eps",
+ggsave(filename = "Premium_Distribution_Dike_NYC.eps",
        plot = f,
        device="eps",
        dpi = 600)
@@ -475,9 +475,9 @@ ggsave(filename = "Stopping_time_dyk_NYC.eps",
 ## Print Table quantile
 
 results[1,] = as.numeric(quantile(no_policy[1165,]))
-results[2,] = as.numeric(quantile(dyke[1165,]))
+results[2,] = as.numeric(quantile(dike[1165,]))
 
-write.table(results, "Quantile_Dyke_NYC.csv", sep = "&")
+write.table(results, "Quantile_Dike_NYC.csv", sep = "&")
 
 
 
@@ -639,7 +639,7 @@ LM_nopolicy = function(alpha, a, b,u){
   return(L)
 }
 
-LM_dyke = function(alpha, a, b,u,k){
+LM_dike = function(alpha, a, b,u,k){
   u = u + k
   c=a*u*u -b*u
   L =max( a * (alpha)^2 + b*(alpha) + c,0)
@@ -653,7 +653,7 @@ LossesNoPolicy = unlist(mapply(function(i) LM_nopolicy(alpha = alpha_simualted_p
                                1:length(alpha_simualted_proofing[1165,]),
                                SIMPLIFY = FALSE))
 
-LossesPolicy = unlist(mapply(function(i) LM_dyke(alpha = alpha_simualted_proofing[1165,i],
+LossesPolicy = unlist(mapply(function(i) LM_dike(alpha = alpha_simualted_proofing[1165,i],
                                                  a = a,
                                                  b = b,
                                                  u = u,

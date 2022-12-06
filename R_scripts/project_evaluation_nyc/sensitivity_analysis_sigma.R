@@ -3,7 +3,7 @@ sigmas = c(7 , 15, 25 , 30, 45 )
 
 I1s <- rep(I1,length(sigmas))
 I2s <- rep(13+0.118/r,length(sigmas))
-#=== Barrier and Dyke ===
+#=== Barrier and Dike ===
 Is <- I2s;k=k2;
 kappa =kappa2; 
 mu <- mu0
@@ -48,8 +48,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 2, label=paste('sensitivity_dyke_nyc_discount',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 2, label=paste('sensitivity_dike_nyc_discount',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -66,7 +66,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_nyc_sigmas", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_nyc_sigmas", ".tex", sep=""), scalebox = 0.90)
 
 
 #== Wet proofing project ===
@@ -138,7 +138,7 @@ print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow,
       file = paste(tab, "sensitivity_proofing_nyc_sigmas", ".tex", sep=""), scalebox = 0.90)
 
 
-#== Sequencing: proofing-dyke and dyke-proofing
+#== Sequencing: proofing-dike and dike-proofing
 gamma <- gamma0
 Is <- c(I1, I2, I2, I1)
 #=== Investment Analysis ===
@@ -205,8 +205,8 @@ for(ii in 1:length(sigmas)){
 
 
 #=== Make Latex table ====
-head0 <- paste("\\hline &", paste("\\multicolumn{", length(sigmas)*2-1, "}{c}{Flood-proofing then dyke}",sep=''),
-               "&&",paste("\\multicolumn{", length(sigmas)*2-1, "}{c}{Dyke then flood-proofing}",sep=''),
+head0 <- paste("\\hline &", paste("\\multicolumn{", length(sigmas)*2-1, "}{c}{Flood-proofing then dike}",sep=''),
+               "&&",paste("\\multicolumn{", length(sigmas)*2-1, "}{c}{Dike then flood-proofing}",sep=''),
                "\\\\","\n",
                paste(
                  paste("\\cmidrule{2-",length(sigmas)*2, "}",sep=''),
