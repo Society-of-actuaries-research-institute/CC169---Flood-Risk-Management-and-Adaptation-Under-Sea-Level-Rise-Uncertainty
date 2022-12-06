@@ -48,8 +48,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_slr_stage1',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_slr_stage1',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -66,7 +66,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_slr_stage1", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_slr_stage1", ".tex", sep=""), scalebox = 0.90)
 
 
 
@@ -117,7 +117,7 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_slr_stage2',sep=''),
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_slr_stage2',sep=''),
                   caption=paste("Investment analysis for wet flood-proofing project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values.
@@ -135,7 +135,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_slr_stage2", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_slr_stage2", ".tex", sep=""), scalebox = 0.90)
 
 
 
@@ -187,7 +187,7 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_slr_oneshot',sep=''),
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_slr_oneshot',sep=''),
                   caption=paste("Investment analysis for wet flood-proofing project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values.
@@ -205,7 +205,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_slr_oneshot", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_slr_oneshot", ".tex", sep=""), scalebox = 0.90)
 
 
 

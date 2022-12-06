@@ -9,7 +9,7 @@ I1 = (160000 +  1371 * (k1^2))/1000000000
 I2 = (160000 +  1371 * (k2^2) + 1371 * (2*k1*k2 ) )/1000000000
 #I2 = 2.919
 
-# INvestment Cost of building the k1+k2 heihgt dyke in one go ( saving on fixed cost)
+# INvestment Cost of building the k1+k2 heihgt dike in one go ( saving on fixed cost)
 
 #I12 = (1600000 +  1371 * (k1^2) + 1371 * (2*k1^2 ) + 1371 * (k1^2)) /1000000000 
 
@@ -70,8 +70,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_discount_stage1',sep=''),
-                  caption=paste("Investment analysis for Dyke Project Stage 1 (k=750 mm) using 
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_discount_stage1',sep=''),
+                  caption=paste("Investment analysis for Dike Project Stage 1 (k=750 mm) using 
                   NPV rule and real options methods under different discount rates. We report (in billion Euros) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -88,7 +88,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_discount_stage1", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_discount_stage1", ".tex", sep=""), scalebox = 0.90)
 
 
 
@@ -142,8 +142,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_discount_stage2',sep=''),
-                  caption=paste("Investment analysis for Dyke project Stage 2 (k = 500mm) using 
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_discount_stage2',sep=''),
+                  caption=paste("Investment analysis for Dike project Stage 2 (k = 500mm) using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values.
                   ",sep=""),
@@ -160,7 +160,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_discount_stage2", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_discount_stage2", ".tex", sep=""), scalebox = 0.90)
 
 
 
@@ -217,8 +217,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 5, label=paste('sensitivity_dyke_cph_discount_one_shot',sep=''),
-                  caption=paste("Investment analysis for Dyke project Stage 2 (k = 500mm) using 
+x.width <- xtable(result,digit = 5, label=paste('sensitivity_dike_cph_discount_one_shot',sep=''),
+                  caption=paste("Investment analysis for Dike project Stage 2 (k = 500mm) using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values.
                   ",sep=""),
@@ -235,7 +235,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_cph_discount_one_shot", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_cph_discount_one_shot", ".tex", sep=""), scalebox = 0.90)
 
 
 

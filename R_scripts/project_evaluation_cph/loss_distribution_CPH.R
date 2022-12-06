@@ -462,13 +462,6 @@ ggsave(filename = "Premium_Distribution_Top_cover_dike_time_CPH.eps",
 
 
 
-
-
-
-
-
-
-
 df = data.frame(value = c(  no_policy[1165,],
                             dike[1165,]),
                 Adaptation = c(rep("No Adaptation",

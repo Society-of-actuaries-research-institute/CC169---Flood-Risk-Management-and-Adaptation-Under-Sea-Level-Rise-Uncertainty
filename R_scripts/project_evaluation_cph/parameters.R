@@ -32,7 +32,7 @@ ustar = 600
 a = 0.0000007453
 b = 0.001562
 
-# Dyke is indexed 1, and then second dyke is indexed 2.
+# Dike is indexed 1, and then second dike is indexed 2.
 k1= 1000  #750
 k2= 1000 #500
 
@@ -42,7 +42,7 @@ I1 = (160000 +  1371 * (k1^2))/1000000000
 I2 = (160000 +  1371 * (k2^2) + 1371 * (2*k1*k2 ) )/1000000000
 #I2 = 2.919
 
-# INvestment Cost of building the k1+k2 heihgt dyke in one go ( saving on fixed cost)
+# INvestment Cost of building the k1+k2 heihgt dike in one go ( saving on fixed cost)
 
 #I12 = (1600000 +  1371 * (k1^2) + 1371 * (2*k1^2 ) + 1371 * (k1^2)) /1000000000 
 
