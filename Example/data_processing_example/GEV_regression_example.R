@@ -87,8 +87,7 @@ LR_test_MaxTideRes = function(covariates, covariates.list.location, covariates.l
   
 }
 ################################ NYC ##########################################
-setwd("./data/nyc")
-
+setwd("./Example/data_processing_example")
 
 data_hourly =  read.csv(file = paste("hourly_series_predict", ".csv", sep=""),
                         sep=",",
