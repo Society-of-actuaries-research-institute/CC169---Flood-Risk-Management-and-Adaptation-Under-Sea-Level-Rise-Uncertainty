@@ -8,7 +8,7 @@ u = 2506;  a=0; b=0.0393
 ustar =2800
 
 
-# proofing is indexed 1, dyke is indexed 2.
+# proofing is indexed 1, dike is indexed 2.
 I2 <- 13+0.118/r
 k2=1000
 a2=0; b2=0.0393;

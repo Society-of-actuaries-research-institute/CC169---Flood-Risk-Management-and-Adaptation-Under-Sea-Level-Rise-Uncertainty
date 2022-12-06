@@ -3,7 +3,7 @@ sigmas = c(7 , 15, 25 , 30, 45 )
 
 I1s <- rep(I1,length(sigmas))
 I2s <- rep(13+0.118/r,length(sigmas))
-#=== Barrier and Dyke ===
+#=== Barrier and Dike ===
 Is <- I2s;k=k2;
 kappa =kappa2; 
 mu <- mu0
@@ -48,8 +48,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 2, label=paste('sensitivity_dyke_nyc_discount',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 2, label=paste('sensitivity_dike_nyc_discount',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -66,7 +66,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_nyc_sigmas", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_nyc_sigmas", ".tex", sep=""), scalebox = 0.90)
 
 
 
