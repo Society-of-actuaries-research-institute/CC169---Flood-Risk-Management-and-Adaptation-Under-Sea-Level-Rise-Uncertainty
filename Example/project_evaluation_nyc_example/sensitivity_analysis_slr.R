@@ -1,5 +1,5 @@
 mus <- c(0,0.5,1,1.5,2)*6 - 0.15
-#=== Barrier and Dyke ===
+#=== Barrier and Dike ===
 I <- I2
 kappa =kappa2; k=k2;
 mu <- mu0
@@ -42,8 +42,8 @@ addtorow$pos[[1]] <- 0
 addtorow$command <- c(head0)
 
 library(xtable)
-x.width <- xtable(result,digit = 2, label=paste('sensitivity_dyke_nyc_slr',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 2, label=paste('sensitivity_dike_nyc_slr',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods under different discount rates. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference between the two values. 
                   ",sep=""),
@@ -60,7 +60,7 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "sensitivity_dyke_nyc_slr", ".tex", sep=""), scalebox = 0.90)
+      file = paste(tab, "sensitivity_dike_nyc_slr", ".tex", sep=""), scalebox = 0.90)
 
 
 
