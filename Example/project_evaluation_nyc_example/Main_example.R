@@ -3,8 +3,8 @@ setwd("./Example/project_evaluation_nyc_example")
 opath= './output/'
 fpath= './../function/'
 ftpath='./../fortran/'
-tab=  './tables/'
-fig=  './figures/'
+tab=  './output/'
+fig=  './output/'
 file.sources = list.files(fpath, pattern="*.R$",full.names=TRUE, ignore.case=TRUE)
 invisible(sapply(file.sources,source))
 
@@ -23,7 +23,7 @@ source(paste("sensitivity_analysis_sigma.R",sep=''))
 
 #== 4. Loss Distribution in 100 Years
 source(paste("loss_distribution_NYC.R",sep=''))
-#== 5. Sensistivity Analysis Loss distribution
+#== 5. Sensitivity Analysis Loss distribution
 source(paste("sensitivity_analysis_loss_distribution.R",sep=''))
 
 

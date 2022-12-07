@@ -148,7 +148,7 @@ for ( j in 1:ncol(alpha_simulated_dike)){
                       s = scale,
                       xi = xi)
      
-     top_cover[i,j] = dyke[i,j] - (1+delta) * exp(12* g) *  Dfn(x = ustar+k2,
+     top_cover[i,j] = dike[i,j] - (1+delta) * exp(12* g) *  Dfn(x = ustar+k2,
                                                                 a = a,
                                                                 b = b,
                                                                 u = u,
@@ -228,11 +228,14 @@ f = f + xlab("Billion Dollars") + ylab("Loss Disitrubtion")
 
 #f
 
-ggsave(filename = "Loss_Distribution_dike_NYC.eps",
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC.eps"),
        plot = f,
        device="eps",
        dpi = 600)
-
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 
 ## Premiums at 100 Years
 
@@ -330,9 +333,15 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_dike_time_NYC.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC.eps"),
        plot = f,
        device="eps",
+       dpi = 600)
+
+
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC.png"),
+       plot = f,
+       device="png",
        dpi = 600)
 
 
@@ -406,11 +415,16 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_Top_cover_dike_time_NYC.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Top_cover_dike_time_NYC.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
+
+ggsave(filename = paste(opath,"Premium_Distribution_Top_cover_dike_time_NYC.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 
 
 
@@ -447,11 +461,14 @@ f = f + xlab("Billion Dollars") + ylab("Premium Disitrubtion")
 f
 
 
-ggsave(filename = "Premium_Distribution_Dike_NYC.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC.eps"),
        plot = f,
        device="eps",
        dpi = 600)
-
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 
 ## Stopping time
 df = data.frame(value = stopping_time)
@@ -467,15 +484,20 @@ f = f + xlab("Time") + ylab("Stopping Time Disitrubtion")
 f
 
 
-ggsave(filename = "Stopping_time_dike_NYC.eps",
+ggsave(filename = paste(opath,"Stopping_time_dike_NYC.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
+
+ggsave(filename = paste(opath,"Stopping_time_dike_NYC.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 ## Print Table quantile
 
 results[1,] = as.numeric(quantile(no_policy[1165,]))
-results[2,] = as.numeric(quantile(dyke[1165,]))
+results[2,] = as.numeric(quantile(dike[1165,]))
 
-write.table(results, "Quantile_Dike_NYC.csv", sep = "&")
+write.table(results,paste(opath, "Quantile_Dike_NYC.csv"), sep = "&")
 

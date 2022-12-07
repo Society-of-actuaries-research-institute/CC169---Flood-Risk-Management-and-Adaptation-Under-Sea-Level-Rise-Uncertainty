@@ -1,6 +1,6 @@
 
 
-#=== Barrier and Dyke ===
+#=== Barrier and Dike ===
 I <- I2
 kappa =kappa2; k=k2;
 mus <- c(0,mu0,2*mu0,mu0)
@@ -30,7 +30,7 @@ for (i in 1:4){
   result[3,2*i] <- result[2,2*i] - result[1,2*i] #difference
   if(i==4){
     #write.table(data, file = paste(mpath, "gvalue", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
-    png(file = paste(fig, "projectvalue_nyc_dyke.png", sep=""), res = 200, width = 1200, height = 800)
+    png(file = paste(fig, "projectvalue_nyc_dike.png", sep=""), res = 200, width = 1200, height = 800)
     par(mfrow=c(1,1), mar=c(4,4,2,2)+0.1) #Margin count from xaxis, yaxis and so on
     plot(data[,1], data[,2], xlab = expression(alpha), ylab = 'Project value ($US billion)', type='l')
     dev.off()
@@ -39,7 +39,7 @@ for (i in 1:4){
   if(i>1){B0 <- cbind(B0, ov$B[,2])}
 }
 names(B0) <- c('time', 'c1', 'c2', 'c3', 'c4')
-write.table(B0, file = paste(opath, "threshold_nyc_dyke", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
+write.table(B0, file = paste(opath, "threshold_nyc_dike", ".csv", sep=""), sep=",", row.names = FALSE, col.names = TRUE)
 
 #=== Make Latex table ====
 head0 <- paste("\\hline &", "$\\mu=0, \\gamma = 1.31\\%$","&&", "$\\mu=6.5, \\gamma =  1.31\\%$","&&", "$\\mu=13, \\gamma =  1.31\\%\\%$","&&",
@@ -52,8 +52,8 @@ addtorow$command <- c(head0)
 result[,1] <- c('NPV','Total value with optionality','Difference')
 
 library(xtable)
-x.width <- xtable(result,digit = 2, label=paste('analysis_nyc_dyke',sep=''),
-                  caption=paste("Investment analysis for Barrier and Dyke Project using 
+x.width <- xtable(result,digit = 2, label=paste('analysis_nyc_dike',sep=''),
+                  caption=paste("Investment analysis for Barrier and Dike Project using 
                   NPV rule and real options methods. We report (in billion USD) the NPV, 
                   the total value with optionality and the difference of the two values. 
                   Results are reported for four cases: i) no climatic change and zero exposure growth, 
@@ -73,11 +73,11 @@ print(x.width,   hline.after = c(nrow(result)),add.to.row = addtorow,
 print(x.width,hline.after = c(nrow(result)),add.to.row = addtorow, 
       sanitize.text=function(x){x}, caption.placement = 'top',table.placement='H',
       floating = TRUE,include.rownames=FALSE, include.colnames=FALSE,
-      file = paste(tab, "analysis_nyc_dyke", ".tex", sep=""), scalebox = 0.80)
+      file = paste(tab, "analysis_nyc_dike", ".tex", sep=""), scalebox = 0.80)
 
 
 #== Exercise boundary ===
-data <- read.csv(paste(opath, "threshold_nyc_dyke.csv", sep=""), sep=",", header=TRUE)
+data <- read.csv(paste(opath, "threshold_nyc_dike.csv", sep=""), sep=",", header=TRUE)
 data <- data[data$time>3,]
 data <- data[data$time<100,]
 data$id <- NA
@@ -85,7 +85,7 @@ for (i in 1:(nrow(data)/2)){data$id[(i-1)*2] <- 1}
 data <- na.omit(data)
 colour <- c('black', 'green', 'blue', 'red')
 style <- seq(1,4,1)
-png(file = paste(fig, "exerciseboundary_nyc_dyke.png", sep=""), res = 200, width = 1400, height = 1000)
+png(file = paste(fig, "exerciseboundary_nyc_dike.png", sep=""), res = 200, width = 1400, height = 1000)
 plot(c(data$time[1], data$time[nrow(data)]), c(min(data[,2:5]), max(data[,2:5])+300), cex=0, 
      xlab='Year', ylab='Investment threshold (mm)')
 for (i in 1:4){

@@ -1,7 +1,6 @@
 
 sigmas = c(7 , 15, 25 , 30, 45 )
 
-I1s <- rep(I1,length(sigmas))
 I2s <- rep(13+0.118/r,length(sigmas))
 #=== Barrier and Dike ===
 Is <- I2s;k=k2;
