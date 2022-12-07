@@ -232,11 +232,17 @@ f = f + xlab("Billion Dollars") + ylab("Loss Disitrubtion")
 
 #f
 
-ggsave(filename = "Loss_Distribution_dike_NYC_lowmsl.eps",
+ggsave(filename = paste(optah,"Loss_Distribution_dike_NYC_lowmsl.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
+
+
+ggsave(filename = paste(optah,"Loss_Distribution_dike_NYC_lowmsl.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 
 ## Premiums at 100 Years
 
@@ -336,11 +342,18 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_dike_time_NYC_lowmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC_lowmsl.eps"),
        plot = f,
        width = 7,
        height = 7,
        device="eps",
+       dpi = 600)
+
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC_lowmsl.png"),
+       plot = f,
+       width = 7,
+       height = 7,
+       device="png",
        dpi = 600)
 
 
@@ -414,13 +427,19 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_Top_cover_dike_time_NYC_lowmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Top_cover_dike_time_NYC_lowmsl.eps"),
        plot = f,
        width = 7,
        height = 7,
        device="eps",
        dpi = 600)
 
+ggsave(filename = paste(opath,"Premium_Distribution_Top_cover_dike_time_NYC_lowmsl.png"),
+       plot = f,
+       width = 7,
+       height = 7,
+       device="png",
+       dpi = 600)
 
 
 
@@ -457,12 +476,15 @@ f = f + xlab("Billion Dollars") + ylab("Premium Disitrubtion")
 f
 
 
-ggsave(filename = "Premium_Distribution_Dike_NYC_lowmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC_lowmsl.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
-
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC_lowmsl.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 ## Stopping time
 df = data.frame(value = stopping_time)
 
@@ -477,9 +499,13 @@ f = f + xlab("Time") + ylab("Stopping Time Disitrubtion")
 f
 
 
-ggsave(filename = "Stopping_time_dyk_NYC_lowmsl.eps",
+ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_lowmsl.eps"),
        plot = f,
        device="eps",
+       dpi = 600)
+ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_lowmsl.png"),
+       plot = f,
+       device="png",
        dpi = 600)
 
 ## Print Table quantile
@@ -487,7 +513,7 @@ ggsave(filename = "Stopping_time_dyk_NYC_lowmsl.eps",
 results[1,] = as.numeric(quantile(no_policy[1165,]))
 results[2,] = as.numeric(quantile(dike[1165,]))
 
-write.table(results, "Quantile_Dike_NYC_lowmsl.csv", sep = "&")
+write.table(results, paste(optah,"Quantile_Dike_NYC_lowmsl.csv"), sep = "&")
 
 
 ##################### HIGH  SEA LEVEL  ##########################################
