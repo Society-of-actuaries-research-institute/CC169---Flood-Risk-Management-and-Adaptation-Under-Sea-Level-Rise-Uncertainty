@@ -232,14 +232,14 @@ f = f + xlab("Billion Dollars") + ylab("Loss Disitrubtion")
 
 #f
 
-ggsave(filename = paste(optah,"Loss_Distribution_dike_NYC_lowmsl.eps"),
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC_lowmsl.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
 
 
-ggsave(filename = paste(optah,"Loss_Distribution_dike_NYC_lowmsl.png"),
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC_lowmsl.png"),
        plot = f,
        device="png",
        dpi = 600)
@@ -513,7 +513,7 @@ ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_lowmsl.png"),
 results[1,] = as.numeric(quantile(no_policy[1165,]))
 results[2,] = as.numeric(quantile(dike[1165,]))
 
-write.table(results, paste(optah,"Quantile_Dike_NYC_lowmsl.csv"), sep = "&")
+write.table(results, paste(opath,"Quantile_Dike_NYC_lowmsl.csv"), sep = "&")
 
 
 ##################### HIGH  SEA LEVEL  ##########################################
