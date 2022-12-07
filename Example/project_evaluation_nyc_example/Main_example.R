@@ -1,5 +1,5 @@
 rm(list=ls(all=TRUE)) 
-setwd("./project_evaluation_nyc_example")
+setwd("./Example/project_evaluation_nyc_example")
 opath= './output/'
 fpath= './../function/'
 ftpath='./../fortran/'
