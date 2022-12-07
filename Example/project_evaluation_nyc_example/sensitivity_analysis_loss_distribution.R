@@ -717,13 +717,20 @@ f = f + xlab("Billion Dollars") + ylab("Loss Disitrubtion")
 
 #f
 
-ggsave(filename = "Loss_Distribution_dike_NYC_highmsl.eps",
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC_highmsl.eps"),
        plot = f,
        width = 7,
        height = 7,
        device="eps",
        dpi = 600)
 
+
+ggsave(filename = paste(opath,"Loss_Distribution_dike_NYC_highmsl.png"),
+       plot = f,
+       width = 7,
+       height = 7,
+       device="png",
+       dpi = 600)
 
 ## Premiums at 100 Years
 
@@ -824,7 +831,7 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_dike_time_NYC_highmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC_highmsl.eps"),
        plot = f,
        width = 7,
        height = 7,
@@ -832,6 +839,12 @@ ggsave(filename = "Premium_Distribution_dike_time_NYC_highmsl.eps",
        dpi = 600)
 
 
+ggsave(filename = paste(opath,"Premium_Distribution_dike_time_NYC_highmsl.png"),
+       plot = f,
+       width = 7,
+       height = 7,
+       device="png",
+       dpi = 600)
 
 ### TOP COVER LIMIT
 
@@ -945,11 +958,16 @@ f = f + xlab("Billion Dollars") + ylab("Premium Disitrubtion")
 f
 
 
-ggsave(filename = "Premium_Distribution_Dike_NYC_highmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC_highmsl.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
+
+ggsave(filename = paste(opath,"Premium_Distribution_Dike_NYC_highmsl.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 
 ## Stopping time
 df = data.frame(value = stopping_time)
@@ -965,11 +983,16 @@ f = f + xlab("Time") + ylab("Stopping Time Disitrubtion")
 f
 
 
-ggsave(filename = "Stopping_time_dyk_NYC_highmsl.eps",
+ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_highmsl.eps"),
        plot = f,
        device="eps",
        dpi = 600)
 
+
+ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_highmsl.png"),
+       plot = f,
+       device="png",
+       dpi = 600)
 ## Print Table quantile
 
 results[1,] = as.numeric(quantile(no_policy[1165,]))
