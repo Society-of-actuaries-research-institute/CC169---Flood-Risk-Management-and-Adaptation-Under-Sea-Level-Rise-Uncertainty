@@ -915,7 +915,7 @@ f
 
 
 
-ggsave(filename = "Premium_Distribution_Top_cover_dike_time_NYC_highmsl.eps",
+ggsave(filename = paste(opath,"Premium_Distribution_Top_cover_dike_time_NYC_highmsl.eps"),
        plot = f,
        width = 7,
        height = 7,
@@ -998,7 +998,7 @@ ggsave(filename = paste(opath,"Stopping_time_dyk_NYC_highmsl.png"),
 results[1,] = as.numeric(quantile(no_policy[1165,]))
 results[2,] = as.numeric(quantile(dike[1165,]))
 
-write.table(results, "Quantile_Dike_NYC_highmsl.csv", sep = "&")
+write.table(results, paste(opath,"Quantile_Dike_NYC_highmsl.csv"), sep = "&")
 
 
 
