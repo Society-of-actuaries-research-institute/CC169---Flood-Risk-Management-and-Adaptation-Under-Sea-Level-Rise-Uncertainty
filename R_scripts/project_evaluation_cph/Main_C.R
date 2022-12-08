@@ -1,10 +1,12 @@
 rm(list=ls(all=TRUE)) 
-setwd("C:/Users/matte/Desktop/SOA project/Multiple Investments/empirical/cph")
+# add your working path here:
+setwd("...")
+setwd("./project_evaluation_cph")
 opath= './output/'
 fpath= './../function/'
 ftpath='./../fortran/'
-tab=  './tables/'
-fig=  './figure/'
+tab=  './output/'
+fig=  './output/'
 file.sources = list.files(fpath, pattern="*.R$",full.names=TRUE, ignore.case=TRUE)
 invisible(sapply(file.sources,source))
 

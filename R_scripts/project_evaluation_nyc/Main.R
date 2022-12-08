@@ -1,10 +1,13 @@
 rm(list=ls(all=TRUE)) 
+# add your working path here:
+setwd("...")
+##
 setwd("./project_evaluation_nyc")
 opath= './output/'
 fpath= './../function/'
 ftpath='./../fortran/'
-tab=  './tables/'
-fig=  './figures/'
+tab=  './output/'
+fig=  './output/'
 file.sources = list.files(fpath, pattern="*.R$",full.names=TRUE, ignore.case=TRUE)
 invisible(sapply(file.sources,source))
 

@@ -1,7 +1,8 @@
 rm(list=ls(all=TRUE)) 
-#setwd("C:/E drive/Flood/SOA/sent/Report/empirical/qld")
-setwd("C:/Users/matte/Desktop/SOA project/Multiple Investments/empirical/qld")
-
+# add your working path here:
+setwd("...")
+##
+setwd("./project_evaluation_seq")
 opath= './output/'
 fpath= './../function/'
 ftpath='./../fortran/'
