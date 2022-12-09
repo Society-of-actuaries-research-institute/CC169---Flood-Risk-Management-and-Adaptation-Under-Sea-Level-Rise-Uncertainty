@@ -50,6 +50,8 @@
 
   If interested in only some specific parts of the project evaluation, single components can be run separately. The outputs of each subsection of the code can then be exported as tables and figures, using, for instance ggplot or others plotting packages or visualization devices.
 
+  1
+
 
 
   
