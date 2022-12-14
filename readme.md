@@ -1,4 +1,4 @@
- # Code for flood risk project using real option analysis
+ # CC169---Flood-Risk-Management-and-Adaptation-Under-Sea-Level-Rise-Uncertainty
 
  This repository contains the relevant code for the project ‘Flood Risk Management and Adaptation Under Sea-Level Rise Uncertainty’. The repository consists of several parts. Each part contains codes that can be used to replicate results shown in the report. We refer to the relevant section of the report for the interpretation of numerical results and theoretical background.
 
