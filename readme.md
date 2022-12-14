@@ -18,40 +18,51 @@
   3. indicate the correct output file.
 
   # Part 3: Statistical Analysis of Extreme Sea Water Level Events
-  The maxima of the non-tidal residual (the deseasonalized sea level time series) can then be modelled using extreme value theory and the GAMLSS approach: the monthly maxima of the non-tidal residual are assumed to follow a generalized extreme value distribution with location and scale parameters depending on certain covariates. The shape parameter is assumed to be stationary for stability issues. The file called "GEV_regression.R" in R_scripts contains the codes for replicating Section 3.5 in the report. These codes are developed based on the framework discussed in Sections 3.4. The initial values for the maxiumum likelihood estimation are taken from the stationary model, i.e. the model without covariates. Covariates selection is based on a likelihood ratio test via the function "LR_test_MaxTideRes" in the R file (see Section 3.4.2 for more details). Results are stored in model_nyc, model_bris, and model_den. 
+
+  The maxima of the non-tidal residual (the deseasonalized sea level time series) can then be modeled using extreme value theory and the GAMLSS approach. 
+  The monthly maxima of the non-tidal residual is assumed to follow a generalized extreme value distribution with location and scale parameters depending on certain covariates. Note that the shape parameter is assumed to be stationary. The file called "GEV_regression.R" in R_scripts contains the codes for replicating Section 3.5 in the report. These codes have been developed based on the framework discussed in Section 3.4. In a first step the model is estimated without covariates to obtain ‘reasonable’ starting values for the maxiumum likelihood estimation. Then in the next step the model is re-estimated using these starting values and the additional covariates. Note that hereby the selection of covariates is based on a likelihood ratio test via the function "LR_test_MaxTideRes" in the R file (see Section 3.4.2 for more details). Results are stored in “model_nyc”, “model_bris”, and “model_den”.
+
 
   # Part 4: Climate Adaptation Project Evaluation
-  This part evaluates climate adaptation projects for the three case studies. It is based on Section 4 of the report, and can be used to replicate the numerical results of Section 5. The relevant codes can be found in R_scripts under three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively. In the case study of New York City, we consider single investments of i) a barrier and dike project and ii) a water proofing project, as well as a multiple investment when the two projects are considered together. Consideration of multiple investments is necessary for the formulation of dynamic investment pathways. For South East Queensland, we investigate the optimal time to invest in a house elevation project. In the Copenhagen case study,we consider the problem of investing in a dike system where the ultimate height of the dike is achieved in one go (a single investment) or achieved in two stages (a multistage investment).
+  This part evaluates climate adaptation projects for the three case studies. It is based on Section 4 of the report and can be used to replicate the numerical results of Section 5. The relevant codes can be found in R_scripts in the following three folders: "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively. 
+
+  For the case study of New York City, we consider single investments of i) a barrier and dike project and ii) a water proofing project, as well as a multiple investment scenario, i.e., considering the two projects together. Consideration of multiple investments is necessary for the formulation of dynamic investment pathways. For South East Queensland, we investigate the optimal time to invest in a house elevation project, while for Copenhagen, we consider the problem of investing in a dike system where the ultimate height of the dike is achieved in one go (a single investment) or achieved in two stages (a multistage investment).
 
   In each case study, the file "Main.R" is used to execute the relevant section of the code:
-  1. "parameters.R": loads the parameters needed for the project evaluation. The choice of the parameters depends on the estimation results for the generalized extreme value distribution in each case, and on previous findings in the literature.
-  2. "investment_analysis.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an American option. Four scenarios are considered: no climate change impact and growth exposure; climate change impact and growth exposure; high climate change impact and growth exposure; climate change impact and high growth exposure. For each climate adaptation policy that is analyzed, the code outputs the Net Present Value and the value of the option to invest, stored in the variable "results", and the investment boundaries. The variable "results" is used to construct the Tables in Section 5. The numerical approximation is done via binomial tree (see Section 4 of the report). 
-  3. "sensitivity_analysis_discount.R", "sensitivity_analysis_slr.R", "sensitivity_analysis_sigma.R": these three files contains the code relevant to the sensitivity analysis with respect to the discount rate, the sea level rise, and the sea level rise uncertainty. Each file can be run separately, and the variable "results" is used to construct the Tables in Section 5 of the report.
+
+  1. "parameters.R": loads the parameters needed for the project evaluation. The choice of the parameters depends on the estimation results for the generalized extreme value distribution for the relevant region, and on previous findings in the literature. See Section 5 for further details.
+  2.    "investment_analysis.R": performs the project evaluation, considering the decision to invest into the climate adaptation policy as an American option. Four scenarios are considered: (i) no climate change impact and zero growth in the loss exposure; (ii) medium climate change impact and medium growth in exposure; (iii) severe climate change impact and medium growth in exposure; (iv) medium climate change impact and high growth in exposure. For each climate adaptation policy that is analyzed, the code provides the following outputs: the Net Present Value and the value of the option to invest (stored in the variable "results"), and the investment boundaries (sea level). The data frame "results" is used to construct the Tables in Section 5. The numerical approximation is done via a binomial lattice (see Section 4 of the report).
+  3.  "sensitivity_analysis_discount.R", "sensitivity_analysis_slr.R", "sensitivity_analysis_sigma.R": these three files contain the code relevant to the sensitivity analysis with respect to the discount rate, the sea level rise, and the sea level rise uncertainty. Each file can be run separately, and similar to the base case project evaluation the data frame "results" is used to construct the Tables in Section 5 of the report.
+
 
   # Part 5: Premium Distribution Evolution
 
-  This section provides with the code relevant for the simulation study on the effect of climate adaptation
-  policies analyzed in the previous part, on insurance premium distribution, and optimal investment timing in the three
-  cities. The code can be used to replicate the numerical results of Section 6. Two typologies of insurance contracts are considered:
-  1. insurance premiums covering losses due to extreme sea level rise for 12 months;
-  2. insurance premiums covering losses due to extreme sea level rise, up to a top cover limit, for 12 months.
+  This section provides the code relevant for the simulation study, examining the effect of climate adaptation policies (analyzed in the previous part) on insurance premium distributions and the optimal timing of investment for the three case studies. The code can be used to replicate the numerical results of Section 6. Two types of insurance contracts are considered:
+
+  1.  insurance premiums covering losses due to extreme sea level rise for 12 months;
+2.  insurance premiums covering losses due to extreme sea level rise, up to a top cover limit, for 12 months.
 
   There are two relevant files for each case study:
 
-  1. "loss_distribution_NYC.R" ("loss_distribution_SEQ.R" and "loss_distribution_CPH.R"): these files simulate the insurance premium evolution over time, with and without the climate adaptation policy, and then compares the distributions. The distribution of the optimal investment timing is also obtained via simulation.
-  2. "sensitivity_analysis_loss_distribution.R": the same exercise is repeated but considering three scenarios for the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a neutral scenario, where the mean sea level is the same as the level assumed in the baseline case for each city; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 2100. The relevant code can be found in R_scripts and it is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively.
+  1.  "loss_distribution_NYC.R" ("loss_distribution_SEQ.R" and "loss_distribution_CPH.R"): these files simulate the insurance premium evolution over time, with and without the climate adaptation policy, and then compare the distributions. The distribution of the optimal investment timing is also obtained via simulation.
+  2.  "sensitivity_analysis_loss_distribution.R": the same exercise is repeated but considering three scenarios for the sea level rise: an optimistic scenario, with a global sea level rise of 18 cm by the year 2100; a base case scenario, where the mean sea level is the same as the level assumed in the baseline analysis for each city in Section 5; and a pessimistic one, where the sea levels are expected to rise by 190cm by the year 2100. The relevant code can be found in “R_scripts” and is divided in three folders "project_evalution_nyc", "project_evalution_seq", and "project_evalution_den" corresponding to the NYC, SEQ, and CPH case studies respectively.
+
 
   # Example: Construction of a barrier and dike to protect New York City
-  This section explains how to use the codes to evaluate the construction of barrier and dike to protect the city of New York. The files to run the example are stored into two folders:
-  1. data_processing_example
-  2. project_evaluation_nyc_example
+
+  This section explains how to use the codes to evaluate the construction of a barrier and dike to protect NYC The required files are stored in the following two folders:
+
+  1.  data_processing_example
+  2.  project_evaluation_nyc_example
 
   When running the code, remember to set the working directory using "setwd(your working path)". The correct order of executing the files is the following:
-  1. Run "deseasinalization_matlab.m" in data_processing_example
-  2. Run "GEV_regression_example.R" in data_processing_example
-  3. Run "Main_example.R" in project_evaluation_nyc_example
+ 
+  1.  Run "deseasinalization_matlab.m" in data_processing_example
+  2.  Run "GEV_regression_example.R" in data_processing_example
+  3.  Run "Main_example.R" in project_evaluation_nyc_example
 
-  If interested in only some specific parts of the project evaluation, single components can be run separately. The outputs of each subsection of the code can then be exported as tables and figures, using, for instance ggplot or others plotting packages or visualization devices.
+  If the user is interested only in specific parts of the project evaluation, single components can be run separately. The outputs of each subsection of the code can then be exported as tables and figures, using, for instance ggplot or others plotting packages or visualization devices.
+
 
 
 
