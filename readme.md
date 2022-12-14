@@ -1,15 +1,18 @@
  # Code for flood risk project using real option analysis
 
- This repository contains the relevant code for the project on flood risk and real option analysis. The repository consists of several parts. Each part contains codes that can be used to replicate results shown in the report. We refer to the relevant section of the report for the interpretation of numerical results and theoretical background.
+ This repository contains the relevant code for the project ‘Flood Risk Management and Adaptation Under Sea-Level Rise Uncertainty’. The repository consists of several parts. Each part contains codes that can be used to replicate results shown in the report. We refer to the relevant section of the report for the interpretation of numerical results and theoretical background.
 
  # Part 1: Data Collection
- The folder data contains the relevant data for the three case studies in New York City, South East Queensland, and Copenhagen. For sea level data we use hourly data available from the archives of the University of Hawaii Sea Level Centre (http://uhslc.soest.hawaii.edu). Climate indices used in this study are:  NAO and the Ni ̃no 3.4 indices for the US, the SCA for Europe, and  the AAO, the IOD and the SOI for Australia. These indices are collected from different sources, and stored in the relevant data folders.
+
+ The folder data contains the relevant data for the three case studies in New York City (NYC), South East Queensland (SEQ), and Copenhagen (CPH). For sea level data we use hourly data available from the archives of the University of Hawaii Sea Level Centre (http://uhslc.soest.hawaii.edu). Climate indices used in this study are: the North Atlantic Oscillation (NAO) index and  the Niño 3.4 index for the US, the Scandinavian Pattern (SCAND) index for Europe, and the Antarctic Oscillation (AAO), the Indian Ocean Dipole (IOD)  and the Southern Oscillation Index (SOI) for Australia. These indices are collected from different sources and have been stored in the relevant data folders for the considered sample period.
 
  # Part 2: Deseasonalization
 
-  Sea water level data are deseasonalized using the matlab function "deseasonalization_matlab.m" in the folder "matlab_scripts". This function is based on the Utide package in R by Codiga (2011). The function takes the sea level as input and estimates tide parameters using 4-year hourly data collected from the University of Hawaii ("hourly_series_2014.csv" for NYC, "hourly_series_2014_bris.csv" for SEQ, and "hourly_series_2014.csv" for CPH), and then uses estimated tide parameters, to predict the tide component for the whole hourly data set. The output ("hourly_series_predict.csv", "hourly_series_predict_bris.csv", or "hourly_series_predict_den.csv") now has two variables: wl is the original water level with trend and tide; wh is the predicted tide (seasonality component)
+  Sea water level data are deseasonalized using the matlab function "deseasonalization_matlab.m" in the folder “matlab_scripts”. This function is based on the Utide package in R by Codiga (2011). The function takes the sea level as input and estimates parameters for the tide component based on hourly data for the most recent four years of the time series collected from the University of Hawaii ("hourly_series_2014.csv" for NYC, "hourly_series_2014_bris.csv" for SEQ, and "hourly_series_2014.csv" for CPH). The estimated parameters are then used to model the tide component for the entire historical hourly data set. 
+  The output ("hourly_series_predict.csv", "hourly_series_predict_bris.csv", or "hourly_series_predict_den.csv") now has two variables: “wl” is the original water level with trend and tide; “wh” is the predicted tide (seasonal component). 
+  
+  When running this function, make sure to:
 
-  When running this function, be sure to:
   1. indicate correctly the input file corresponding to the case study;
   2. use the correct latitude values;
   3. indicate the correct output file.
@@ -29,7 +32,7 @@
 
   This section provides with the code relevant for the simulation study on the effect of climate adaptation
   policies analyzed in the previous part, on insurance premium distribution, and optimal investment timing in the three
-  cities. The code can be used to replicate the numerical results of Section 6 Two typologies of insurance contracts are considered:
+  cities. The code can be used to replicate the numerical results of Section 6. Two typologies of insurance contracts are considered:
   1. insurance premiums covering losses due to extreme sea level rise for 12 months;
   2. insurance premiums covering losses due to extreme sea level rise, up to a top cover limit, for 12 months.
 
